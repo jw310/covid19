@@ -1,0 +1,86 @@
+/* 
+e.g.
+@mixin shadow {
+    box-shadow: 1px 2px 2px #666;
+}
+.button {
+    @include shadow;
+}
+*/
+
+//  瀏覽器前綴
+@mixin css3($property, $value) {
+    @each $prefix in -webkit-, -moz-, -ms-, -o-, '' { #{$prefix}#{$property}: $value; } 
+}
+
+// 標題隱藏，圖片取代文字，原有的標籤除了圖，跟高、寬外加上下三行
+@mixin text-hide {
+    text-indent: 101%; 
+    overflow:hidden;
+    white-space: nowrap;
+}
+
+@mixin text-color-size($color,$size){
+    color:$color;
+    font-size: $size;
+}
+
+//  清除浮動(Compass)
+@mixin clearfix() {
+    &:before,   &:after {    content: "";     display: table;   
+    }   
+    &:after {    clear: both;   }
+}
+
+// 內外陰影
+@mixin box-emboss($opacity, $opacity2) {
+    box-shadow:white($opacity) 0 1px 0, inset black($opacity2) 0 1px 0; 
+}
+
+// 畫圓
+@mixin circle($size, $bgcolor) {
+    border-radiu: 50%;
+    height: $size;
+    width: $size;
+    font-size: $size/3;
+    background: $bgcolor;
+}
+
+// RWD size
+@mixin desktop-below {
+    @media (max-width: 1023px){
+        @content;
+    }
+}
+
+// 行高
+@mixin line-height($heightValue: 12 ) {
+    line-height: $heightValue + px; //fallback for old browsers   line-height: (0.125 * $heightValue) + rem; 
+}
+
+// 絕對定位
+@mixin abs-pos ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+    top: $top;   right: $right;   bottom: $bottom;   left: $left;   position: absolute; 
+}
+
+
+// bootstrap RWD size @content 用途主要是拿來傳遞內容到 Mixin，寫其他條件
+@mixin pad {
+    @media (max-width: 768px){
+        @content;
+    }
+}
+
+// bootstrap RWD size
+@mixin mobile {
+    @media (max-width: 568px){
+        @content;
+    } 
+}
+
+// RWD size 5.8 吋
+@mixin iphoneX {
+    @media (max-width: 375px){
+        @content;
+    } 
+}

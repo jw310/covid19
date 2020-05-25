@@ -1,0 +1,107 @@
+// @import "resetcss";
+// @import "mixin";
+// @import "main";
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    background-color: #534847;
+}
+
+// navbar
+
+.navbar {
+    height: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+    background-color: #6E7783;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+}
+
+// navbar 選單
+.navbar-nav {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    .nav-link {
+    color: white; 
+    font-size: 20px; 
+    font-weight: bolder;
+    }
+}
+
+// 折疊圖示
+.navbar-toggler {
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    border: 0;
+    padding: 0;
+    outline: none;
+}
+
+// 按下折疊圖示
+.navbar-toggle {
+    height: 240px;
+    transition: height 0.3s;
+    .navbar-brand {
+        position: fixed;
+        top: 10px;
+        left: 16px
+    }
+    .navbar-toggler-icon {
+    position: fixed;
+    top: 10px;
+    left: calc(95%);
+    }
+}
+
+// collapse 展開
+.navbar-collapse.collapse.show {
+    background: #6E7783;
+}
+
+// 大於 992px 時隱藏漢堡按鈕、下拉式選單
+@media (min-width: 992px) {
+.navbar-expand-lg .navbar-toggler {
+    display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    ul:nth-child(1) {
+        margin-top: 40px;
+    }
+}
+
+
+.query {
+    color: #fff;
+    position: relative;
+    top: 80px;
+    left: 20px;
+    .info-list {
+        font-size: 30px;
+        a {
+        color: #9DC3C1;
+        }
+    }
+}
+

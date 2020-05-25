@@ -1,0 +1,45 @@
+//設定一個元素樣式為 box-sizing: border-box;，這個元素的內距和邊框將不會增加元素本身的寬度
+//元素設定的寬度就已經包含內容寬度、內距與邊框寬度。
+//全部元素
+
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;  
+}
+
+// 背景底色
+.wrap {
+    max-width: 1280; // 因爲 RWD 使用 max-width 
+    margin: 0 auto;    // 元素置中處理
+    // background-color: $bg-color;
+}
+
+.clearfix{   // 清除浮動
+    clear: both;
+}
+
+// .btn {
+//   color: #f50606;
+//   padding-top: .5rem;
+//   padding-bottom: .5rem;
+//   display: block;
+//   text-decoration: none; // 文字樣式
+//   margin-top: .5rem;
+//   text-align: center;    // 置中
+//   transition: background-color .5s;   // 漸變
+//   &:hover, &:focus {
+//   background-color: darken($btn-color, 15%);
+//   }
+//  }
+
+// 測試螢幕尺寸，改變背景色
+.wrap {
+	// background-color: lightgoldenrodyellow;
+	@include pad {
+		background-color: lightgray;
+	}
+	@include mobile {
+		background-color: lightblue;
+	}
+}
